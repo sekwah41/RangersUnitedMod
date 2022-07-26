@@ -1,0 +1,82 @@
+package net.hero61.rangersunitedmod.item.armor;
+
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.util.LazyLoadedValue;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+
+import java.util.function.Supplier;
+
+
+public enum RangersArmorMaterial implements ArmorMaterial {
+
+   MIGHTY_MORPHIN("mightymorphin", 35, new int[]{8, 8, 8, 8}, 0, null, 3.0F, 0.2F, () -> null),
+    ;
+
+    private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};
+    private final String name;
+    private final int durabilityMultiplier;
+    private final int[] slotProtections;
+    private final int enchantmentValue;
+    private final SoundEvent sound;
+    private final float toughness;
+    private final float knockbackResistance;
+    /**
+     * May be Deprecated but is used in the vanilla materials
+     */
+    private final LazyLoadedValue<Ingredient> repairIngredient;
+
+    RangersArmorMaterial(String name, int durabilityMultiplier, int[] slotProtections, int enchantmentValue, SoundEvent soundEvent, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
+        this.name = name;
+        this.durabilityMultiplier = durabilityMultiplier;
+        this.slotProtections = slotProtections;
+        this.enchantmentValue = enchantmentValue;
+        this.sound = soundEvent;
+        this.toughness = toughness;
+        this.knockbackResistance = knockbackResistance;
+        this.repairIngredient = new LazyLoadedValue<>(repairIngredient);
+    }
+
+    public int getDurabilityForSlot(EquipmentSlot p_200896_1_) {
+        return HEALTH_PER_SLOT[p_200896_1_.getIndex()] * this.durabilityMultiplier;
+    }
+
+    @Override
+    public int getDefenseForSlot(EquipmentSlot p_200902_1_) {
+        return this.slotProtections[p_200902_1_.getIndex()];
+    }
+
+    @Override
+    public int getEnchantmentValue() {
+        return this.enchantmentValue;
+    }
+
+    @Override
+    public SoundEvent getEquipSound() {
+        return this.sound;
+    }
+
+    @Override
+    public Ingredient getRepairIngredient() {
+        return this.repairIngredient.get();
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    @Override
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    public float getToughness() {
+        return this.toughness;
+    }
+
+    @Override
+    public float getKnockbackResistance() {
+        return this.knockbackResistance;
+    }
+}
