@@ -2,11 +2,8 @@ package net.hero61.rangersunitedmod.client.renderer;
 
 
 import net.hero61.rangersunitedmod.RangersUnitedMod;
-import net.hero61.rangersunitedmod.client.models.armor.mightymorphin.ModelMightyMorphinRed_model;;
+import net.hero61.rangersunitedmod.client.models.armor.mightymorphin.ModelMightyMorphinRed;;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
-import net.minecraft.client.renderer.entity.LivingEntityRenderer;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterClientReloadListenersEvent;
@@ -29,7 +26,7 @@ public class RangersRenderEvents {
     public static void layerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event)
     {
         //Mighty Morphin
-        event.registerLayerDefinition(ModelMightyMorphinRed_model.LAYER_LOCATION, ModelMightyMorphinRed_model::createLayer);
+        event.registerLayerDefinition(ModelMightyMorphinRed.LAYER_LOCATION, ModelMightyMorphinRed::createLayer);
         
      
     }

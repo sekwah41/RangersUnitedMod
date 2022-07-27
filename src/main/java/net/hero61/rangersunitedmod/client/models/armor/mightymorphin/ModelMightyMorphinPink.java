@@ -2,6 +2,7 @@ package net.hero61.rangersunitedmod.client.models.armor.mightymorphin;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.hero61.rangersunitedmod.RangersUnitedMod;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -14,11 +15,11 @@ import net.minecraft.world.entity.Entity;
 // Made with Blockbench 4.2.5
 // Exported for Minecraft version 1.17 - 1.18 with Mojang mappings
 // Paste this class into your mod and generate all required imports
-public class ModelMightyMorphinPink_model<T extends Entity> extends EntityModel<T> {
+public class ModelMightyMorphinPink<T extends Entity> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in
 	// the entity renderer and passed into this model's constructor
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(
-			new ResourceLocation("rangersunited", "model_mighty_morphin_pink_model"), "main");
+			new ResourceLocation(RangersUnitedMod.MOD_ID, "model_mighty_morphin_pink_model"), "main");
 	public final ModelPart Head;
 	public final ModelPart Body;
 	public final ModelPart RightArm;
@@ -26,7 +27,7 @@ public class ModelMightyMorphinPink_model<T extends Entity> extends EntityModel<
 	public final ModelPart RightLeg;
 	public final ModelPart LeftLeg;
 
-	public ModelMightyMorphinPink_model(ModelPart root) {
+	public ModelMightyMorphinPink(ModelPart root) {
 		this.Head = root.getChild("Head");
 		this.Body = root.getChild("Body");
 		this.RightArm = root.getChild("RightArm");

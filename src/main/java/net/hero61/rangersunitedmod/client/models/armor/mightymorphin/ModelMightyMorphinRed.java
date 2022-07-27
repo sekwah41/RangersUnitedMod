@@ -7,6 +7,7 @@ package net.hero61.rangersunitedmod.client.models.armor.mightymorphin;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.sekwah.sekclib.util.ModelUtils;
+import net.hero61.rangersunitedmod.RangersUnitedMod;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -15,11 +16,11 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 
-public class ModelMightyMorphinRed_model<T extends LivingEntity> extends HumanoidModel<T> {
+public class ModelMightyMorphinRed<T extends LivingEntity> extends HumanoidModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "redmightymorphin"), "main");
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(RangersUnitedMod.MOD_ID, "redmightymorphin"), "main");
 
-	public ModelMightyMorphinRed_model(ModelPart modelPart) {
+	public ModelMightyMorphinRed(ModelPart modelPart) {
 		super(modelPart);
 
 	}
